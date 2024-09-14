@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header-left h1 {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.header-right a {
+    color: #00aaff;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.header-right a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+main {
+    padding: 20px;
+}
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.music-item {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.music-item audio {
+    width: 100%;
+    margin-top: 5px;
+}
+.music-item.favorite {
+    border: 2px solid #ffcc00; /* Gold border to highlight */
+    background-color: #333; /* Slightly different background color */
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5); /* Glow effect */
+}
