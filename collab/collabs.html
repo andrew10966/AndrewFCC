@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborations</title>
+    <link rel="stylesheet" href="collabs.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>AndrewFCC</h1>
+        </div>
+        <nav class="header-right">
+            <a href="\index.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#maps">Maps</a>
+            <a href="\collab\collabs.html">Collaborations</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Collaborations</h2>
+            
+            <!-- Search Bar -->
+            <input type="text" id="searchBar" placeholder="Search collaborations..." onkeyup="filterCollaborations()">
+
+            <div id="active-filters">
+                <p>Active Filters: <span id="status-filters">None</span> | <span id="genre-filters">None</span></p>
+            </div>
+
+            <!-- Genre Filter Buttons -->
+            <div class="filter-genres">
+                <button class="filter-button" onclick="filterByTag('all', 'genre')">All Genres</button>
+                <button class="filter-button" onclick="filterByTag('hardcore', 'genre')">Hardcore</button>
+                <button class="filter-button" onclick="filterByTag('electronic', 'genre')">Electronic</button>
+                <button class="filter-button" onclick="filterByTag('rnb', 'genre')">R&B</button>
+                <button class="filter-button" onclick="filterByTag('Hip-Hop', 'genre')">Hip-Hop</button>
+            </div>
+            
+            <!-- Filter Tags -->
+            <div class="filter-tags">
+                <button class="filter-button" onclick="filterByTag('all', 'status')">All</button>
+                <button class="filter-button" onclick="filterByTag('open', 'status')">Open</button>
+                <button class="filter-button" onclick="filterByTag('in-progress', 'status')">In Progress</button>
+                <button class="filter-button" onclick="filterByTag('closed', 'status')">Closed</button>
+                <button class="filter-button" onclick="filterByTag('finished', 'status')">Finished</button>
+            </div>
+
+            <!-- Collaboration Items -->
+            <div class="collab-item" data-status="open" data-genre="electronic">
+                <div class="collab-details">
+                    <h1><a href="https://youtu.be/Iftjeh2NV_M?si=J0IkFd1no3crheoV"> EZG, Major Conspiracy, and N-Vitral - Dwars Door Het Dak</a></h1>
+                    <p>Probably going to use something like Big Mirror to use the rings as my main kick representation</p>
+                </div>
+                <div class="collab-genres">
+                    <span class="genre-tag">Hardcore</span>
+                    <span class="tag open">Open</span>
+                </div>
+            </div>
+            
+            <div class="collab-item" data-status="open" data-genre="Hip-Hop">
+                <div class="collab-details">
+                    <h1><a href="https://youtu.be/MKc72oGmVcU?si=_2nZcBR3a9K1ERMy">Doov - Evil</a></h1>
+                    <p>Honestly not sure how I want to light this, Its a bit outside my comfort zone but man is it a jammer</p>
+                </div>
+                <div class="collab-genres">
+                    <span class="genre-tag">Hip-Hop</span>
+                    <span class="tag open">Open</span>
+                </div>
+            </div>
+            <div class="collab-item" data-status="open" data-genre="rnb">
+                <div class="collab-details">
+                    <h1><a href="https://youtu.be/RCaSpqWKnmA?si=WSMdNbfcHFq0ZsBS">emawk and solace - Mind</a></h1>
+                    <p>I have an idea using chroma+, each "mind" will light up stars or something not sure yet</p>
+                </div>
+                <div class="collab-genres">
+                    <span class="genre-tag">R&B</span>
+                    <span class="tag open">Open</span>
+                </div>
+            </div>       
+    </main>
+
+    <script src="collabs.js"></script>
+</body>
+</html>

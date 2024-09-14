@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header-left h1 {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.header-right a {
+    color: #00aaff;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.header-right a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+main {
+    padding: 20px;
+}
+
+#searchBar {
+    width: 100%;
+    max-width: 100%; /* Prevents the search bar from overflowing */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #444;
+    color: #e0e0e0;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.filter-tags {
+    margin-bottom: 20px;
+}
+
+
+.filter-button {
+    padding: 8px 16px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 15px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: #555;
+}
+
+/* Updated Collaboration Item Layout */
+.collab-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #444;
+    background-color: #333;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.collab-details {
+    text-align: left;
+}
+
+.collab-details h1 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #00aaff;
+}
+
+.collab-details p {
+    margin: 5px 0;
+    color: #bbb;
+}
+
+.collab-tag {
+    display: flex;
+    align-items: center;
+}
+
+.collab-tags {
+    display: flex;
+    gap: 10px; /* Adds space between tags */
+}
+
+.tag {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    color: #fff;
+}
+
+.open {
+    background-color: #28a745; /* Green for Open */
+}
+
+.in-progress {
+    background-color: #ff9800; /* Orange for In Progress */
+}
+
+.closed {
+    background-color: #dc3545; /* Red for Closed */
+}
+
+.finished {
+    background-color: #ff69b4; /* Pink for Finished */
+}
+.collab-genres {
+    margin-bottom: 10px; /* Space between genres and status */
+}
+
+.genre-tag {
+    padding: 5px 10px;
+    border-radius: 15px;
+    background-color: #666; /* Neutral background */
+    color: #fff;
+    font-size: 0.9em;
+    margin-right: 10px;
+}
+.filter-genres {
+    margin-top: 10px; /* Space between status and genre filters */
+}
+#active-filters {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+#active-filters p {
+    margin: 0;
+}
+
+#active-filters span {
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+.filter-button.active {
+    background-color: #666;
+}
+.filter-tags, .filter-genres {
+    margin-bottom: 10px; /* Space below each filter section */
+}
+a{
+    text-decoration: none;
+    margin: 0;
+    font-size: 1.2em;
+    color: #00aaff;
+}
