@@ -1,6 +1,7 @@
-// Hey so uh I dont really have the resourse to keep these Ids private so please dont do anything weird
-const clientId = 'a8d951c9a7764fd0ba2ad2ceda8d8404';
-const clientSecret = '5348d32b1a8d44319b2a1387577646dd';
+require('dotenv').config();
+
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
 const playlistId = '1mdBOh69mhjfyjJh8kt0JY';
 
 // Example status tags
