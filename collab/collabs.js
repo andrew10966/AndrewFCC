@@ -3,11 +3,15 @@ function filterCollaborations() {
     const collabItems = document.querySelectorAll('.collab-item');
 
     collabItems.forEach(item => {
-        const collabName = item.querySelector('h3').textContent.toLowerCase();
-        if (collabName.includes(searchInput)) {
-            item.style.display = '';
+        // Grab the text from both the <h1> and <p> (title and description) to match the search
+        const collabTitle = item.querySelector('h1').textContent.toLowerCase();
+        const collabDescription = item.querySelector('p').textContent.toLowerCase();
+
+        // If search input matches either title or description, show the item
+        if (collabTitle.includes(searchInput) || collabDescription.includes(searchInput)) {
+            item.style.display = '';  // Show the item
         } else {
-            item.style.display = 'none';
+            item.style.display = 'none';  // Hide the item
         }
     });
 }
@@ -15,21 +19,29 @@ function filterCollaborations() {
 let currentStatusFilter = 'all';
 let currentGenreFilter = 'all';
 
-function updateActiveFilters() {
-    const statusFilters = document.getElementById('status-filters');
-    const genreFilters = document.getElementById('genre-filters');
+function filterCollaborations() {
+    const searchInput = document.getElementById('searchBar').value.toLowerCase();
+    const collabItems = document.querySelectorAll('.collab-item');
 
-    if (currentStatusFilter === 'all') {
-        statusFilters.textContent = 'None';
-    } else {
-        statusFilters.textContent = capitalizeFirstLetter(currentStatusFilter);
-    }
+    collabItems.forEach(item => {
+        // Get the collaboration name (inside <h1> tag)
+        const collabName = item.querySelector('h1').textContent.toLowerCase();
 
-    if (currentGenreFilter === 'all') {
-        genreFilters.textContent = 'None';
-    } else {
-        genreFilters.textContent = capitalizeFirstLetter(currentGenreFilter);
-    }
+        // Get status and genre attributes from the HTML element
+        const itemStatus = item.getAttribute('data-status');
+        const itemGenre = item.getAttribute('data-genre');
+
+        // Match status and genre filters
+        const statusMatch = (currentStatusFilter === 'all' || itemStatus === currentStatusFilter);
+        const genreMatch = (currentGenreFilter === 'all' || itemGenre === currentGenreFilter);
+
+        // Show or hide item based on search, status, and genre filters
+        if (collabName.includes(searchInput) && statusMatch && genreMatch) {
+            item.style.display = 'flex';  // Display matched items
+        } else {
+            item.style.display = 'none';  // Hide unmatched items
+        }
+    });
 }
 
 function filterByTag(tag, type) {
@@ -39,23 +51,28 @@ function filterByTag(tag, type) {
         currentGenreFilter = tag;
     }
 
-    let collabItems = document.querySelectorAll('.collab-item');
+    // Re-apply filters and search
+    filterCollaborations();
+    updateActiveFilters();  // Optional: If you want to show active filters
+}
 
-    collabItems.forEach(item => {
-        let itemTags = item.getAttribute('data-status').split(' ');
-        let itemGenres = item.getAttribute('data-genre').split(' ');
+function updateActiveFilters() {
+    const statusFilters = document.getElementById('status-filters');
+    const genreFilters = document.getElementById('genre-filters');
 
-        let statusMatch = (currentStatusFilter === 'all' || itemTags.includes(currentStatusFilter));
-        let genreMatch = (currentGenreFilter === 'all' || itemGenres.includes(currentGenreFilter));
+    // Display active status filter
+    if (currentStatusFilter === 'all') {
+        statusFilters.textContent = 'None';
+    } else {
+        statusFilters.textContent = capitalizeFirstLetter(currentStatusFilter);
+    }
 
-        if (statusMatch && genreMatch) {
-            item.style.display = 'flex'; // Show item if it matches both filters
-        } else {
-            item.style.display = 'none'; // Hide item if it does not match both filters
-        }
-    });
-
-    updateActiveFilters(); // Update the display of active filters
+    // Display active genre filter
+    if (currentGenreFilter === 'all') {
+        genreFilters.textContent = 'None';
+    } else {
+        genreFilters.textContent = capitalizeFirstLetter(currentGenreFilter);
+    }
 }
 
 function capitalizeFirstLetter(string) {
