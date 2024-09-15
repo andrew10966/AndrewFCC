@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b; /* Dark background color */
+    color: #e0e0e0; /* Light text color for contrast */
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #1e1e1e; /* Slightly lighter dark color for header */
+    color: #e0e0e0; /* Light text color for header */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.header-left h1 {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.header-right {
+    display: flex;
+}
+
+.header-right a {
+    color: #00aaff; /* Bright color for links */
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 10px 15px; /* Add padding to increase clickable area */
+    border-radius: 5px; /* Rounded corners for background change */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.header-right a:hover {
+    background-color: #333; /* Dark background color on hover */
+    color: #fff; /* Light text color on hover */
+}
+
+main {
+    padding: 20px;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2b2b2b;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+    font-size: 14px;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}
+  
+  footer i {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+a {
+    text-decoration: none;
+}
