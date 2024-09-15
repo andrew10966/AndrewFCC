@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AndrewFCC</title>
+    <title>Collaborations Playlist</title>
     <link rel="stylesheet" href="collabs.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,219 +16,26 @@
             <a href="#about">About</a>
             <a href="\music\music.html">Songs</a>
             <a href="\portfol\creations.html">Maps</a>
-            <a href="\collab\collabs.html">Collaborations</a>
+            <a href="\collab\collab.html">Collaborations</a>
         </nav>
     </header>
-
+    
     <main>
-        <section>
-            <h2>Collaborations</h2>
-            <p>I am always open to collaborate with other members of Beat Saber regardless of experience! I have curated this list of songs I would light with no hesitation if someone mapped them.</p></p>
-            <p><i>The "In Progress" tag does not mean a map is being collaborated on. In this case it means I am currently lighting this song already! The "Finished" tag can mean two things, if its accompanied with an open tag the lights are finished, if it has a closed tag instead the map was already taken and published! If a map has no description just know its going to be lighting.</i></p>
-            
-            <!-- Search Bar -->
-            <input type="text" id="searchBar" placeholder="Search collaborations..." onkeyup="filterCollaborations()">
-
-            <div id="active-filters">
-                <p>Active Filters: <span id="status-filters">None</span> | <span id="genre-filters">None</span></p>
+        <section id="filters">
+            <input type="text" id="search" placeholder="Search for a song or artist">
+            <div id="genre-filters">
+                <!-- Genre checkboxes will be dynamically inserted here -->
             </div>
-
-            <p><i>Please select both a genre and status tag for it to work, eg; to see all priority songs do "All genres"+"Priority". You cant select multiple tags, this will be fixed soon. I am aware some tags dont work and that anything with the priority tag shows up for all status tags, <b>sincere apologies for this being supper bugged!</b></i></p>
-
-            <!-- Genre Filter Buttons -->
-            <div class="filter-genres">
-                <button class="filter-button" onclick="filterByTag('all', 'genre')">All Genres</button>
-                <button class="filter-button" onclick="filterByTag('hardcore', 'genre')">Hardcore</button>
-                <button class="filter-button" onclick="filterByTag('electronic', 'genre')">Electronic</button>
-                <button class="filter-button" onclick="filterByTag('rnb', 'genre')">R&B</button>
-                <button class="filter-button" onclick="filterByTag('Hip-Hop', 'genre')">Hip-Hop</button>
+            <div id="status-filters">
+                <!-- Status checkboxes will be dynamically inserted here -->
             </div>
-            
-            <!-- Filter Tags -->
-            <div class="filter-tags">
-                <button class="filter-button" onclick="filterByTag('all', 'status')">All</button>
-                <button class="filter-button" onclick="filterByTag('open', 'status')">Open</button>
-                <button class="filter-button" onclick="filterByTag('in-progress', 'status')">In Progress</button>
-                <button class="filter-button" onclick="filterByTag('closed', 'status')">Closed</button>
-                <button class="filter-button" onclick="filterByTag('finished', 'status')">Finished</button>
-                <button class="rainbow-button">Priority</button>
-            </div>
-
-            <!-- Collaboration Items -->
-            <div class="collab-list">
-            <div class="collab-item" data-status="open" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://youtu.be/Iftjeh2NV_M?si=J0IkFd1no3crheoV"> EZG, Major Conspiracy, and N-Vitral - Dwars Door Het Dak</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item favorite" data-status="open" data-priority="true" data-genre="Hip-Hop">
-                <div class="collab-details">
-                    <h1><a href="https://youtu.be/MKc72oGmVcU?si=_2nZcBR3a9K1ERMy">Doov - Evil</a></h1>
-                    <p>Honestly not sure how I want to light this, Its a bit outside my comfort zone but man is it a jammer</p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hip-Hop</span>
-                    <span class="tag open">Open</span>
-                    <span class="rainbow-button">Priority</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="rnb">
-                <div class="collab-details">
-                    <h1><a href="https://youtu.be/RCaSpqWKnmA?si=WSMdNbfcHFq0ZsBS">emawk and solace - Mind</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">R&B</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=CFOyVai_Sb8"> Dimitri K- Where Have You Been</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=tgqMCV7FOR0"> Dimitri K - TO THE DEATH</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=sV95afTb4e8">Angerfist & Miss K8 - Breinbreker</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=UWu4u_qi6y0">Cryogenic & Hysta - Player Nr. 1</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item favorite" data-status="open" data-priority="true" data-genre="Hip-Hop">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=RrJkfy59ODI">Perry Maysun - Joel.</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hip-Hop</span>
-                    <span class="tag open">Open</span>
-                    <span class="rainbow-button">Priority</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="electronic">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=UnKa-FxUIdE">Cabu - Take It All Ft. Blush'ko</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Electronic</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item favorite" data-status="open" data-priority="true" data-genre="electronic">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=KMoaASuNFBk">GTA & What So Not - Feel It ft. Tunji Ige</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Electronic</span>
-                    <span class="tag open">Open</span>
-                    <span class="rainbow-button">Priority</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="electronic">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=NoL-V7QPVaE">Disclosure & Sam Smith - Latch</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Electronic</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=HiMR7X7zCVo">Angerfist & Detest - The Untouchabbles</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item" data-status="open" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?app=desktop&v=PtNUV_7ez4s"> DJ Mad Dog & Angerfist - Step Into The Dark</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                </div>
-            </div>
-            <div class="collab-item favorite" data-status="open" data-priority="true" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=QSlNARuVtnE">Fraw - NEXT LEVEL</a></h1>
-                    <p>Planning for full chroma+ and custom environment</p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                    <span class="rainbow-button">Priority</span>
-                </div>
-            </div>
-            <div class="collab-item favorite" data-status="open" data-priority="true" data-genre="electronic">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=xaYIbhFTlEI">RSCL, Repiet & Julia Kleijn - Echo </a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Electronic</span>
-                    <span class="tag open">Open</span>
-                    <span class="rainbow-button">Priority</span>
-                </div>
-            </div>
-            <div class="collab-item favorite" data-status="open" data-priority="true" data-genre="hardcore">
-                <div class="collab-details">
-                    <h1><a href="https://www.youtube.com/watch?v=EGQrcJkoC8o">Imperatorz & The Dope Doctor - Real Villains</a></h1>
-                    <p></p>
-                </div>
-                <div class="collab-genres">
-                    <span class="genre-tag">Hardcore</span>
-                    <span class="tag open">Open</span>
-                    <span class="rainbow-button">Priority</span>
-                </div>
-            </div>
-        </div>                                                                 
+        </section>
+        
+        <section id="playlist">
+            <!-- Playlist songs will be dynamically inserted here -->
+        </section>
     </main>
-
-    <footer>
-        <p><i class="fa-brands fa-discord"></i><i class="fa-brands fa-twitch"></i>andrew_fcc <i class="fa-brands fa-twitter"></i>andrew__fcc</p>
-    </footer>
-
+    
     <script src="collabs.js"></script>
 </body>
 </html>
