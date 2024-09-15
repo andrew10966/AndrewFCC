@@ -1,45 +1,25 @@
+document.addEventListener('DOMContentLoaded', () => {
+    shuffleCollaborations();  // Call the shuffle function when the page loads
+    filterCollaborations();   // Apply any filtering
+});
+
 function filterCollaborations() {
     const searchInput = document.getElementById('searchBar').value.toLowerCase();
     const collabItems = document.querySelectorAll('.collab-item');
 
     collabItems.forEach(item => {
-        // Grab the text from both the <h1> and <p> (title and description) to match the search
         const collabTitle = item.querySelector('h1').textContent.toLowerCase();
-        const collabDescription = item.querySelector('p').textContent.toLowerCase();
-
-        // If search input matches either title or description, show the item
-        if (collabTitle.includes(searchInput) || collabDescription.includes(searchInput)) {
-            item.style.display = '';  // Show the item
-        } else {
-            item.style.display = 'none';  // Hide the item
-        }
-    });
-}
-
-let currentStatusFilter = 'all';
-let currentGenreFilter = 'all';
-
-function filterCollaborations() {
-    const searchInput = document.getElementById('searchBar').value.toLowerCase();
-    const collabItems = document.querySelectorAll('.collab-item');
-
-    collabItems.forEach(item => {
-        // Get the collaboration name (inside <h1> tag)
-        const collabName = item.querySelector('h1').textContent.toLowerCase();
-
-        // Get status and genre attributes from the HTML element
         const itemStatus = item.getAttribute('data-status');
+        const itemPriority = item.getAttribute('data-priority');  // New priority check
         const itemGenre = item.getAttribute('data-genre');
 
-        // Match status and genre filters
-        const statusMatch = (currentStatusFilter === 'all' || itemStatus === currentStatusFilter);
+        const statusMatch = (currentStatusFilter === 'all' || itemStatus === currentStatusFilter || itemPriority === 'true');
         const genreMatch = (currentGenreFilter === 'all' || itemGenre === currentGenreFilter);
 
-        // Show or hide item based on search, status, and genre filters
-        if (collabName.includes(searchInput) && statusMatch && genreMatch) {
-            item.style.display = 'flex';  // Display matched items
+        if (collabTitle.includes(searchInput) && statusMatch && genreMatch) {
+            item.style.display = 'flex';
         } else {
-            item.style.display = 'none';  // Hide unmatched items
+            item.style.display = 'none';
         }
     });
 }
@@ -51,30 +31,34 @@ function filterByTag(tag, type) {
         currentGenreFilter = tag;
     }
 
-    // Re-apply filters and search
     filterCollaborations();
-    updateActiveFilters();  // Optional: If you want to show active filters
+    updateActiveFilters();
 }
 
 function updateActiveFilters() {
     const statusFilters = document.getElementById('status-filters');
     const genreFilters = document.getElementById('genre-filters');
 
-    // Display active status filter
-    if (currentStatusFilter === 'all') {
-        statusFilters.textContent = 'None';
-    } else {
-        statusFilters.textContent = capitalizeFirstLetter(currentStatusFilter);
-    }
-
-    // Display active genre filter
-    if (currentGenreFilter === 'all') {
-        genreFilters.textContent = 'None';
-    } else {
-        genreFilters.textContent = capitalizeFirstLetter(currentGenreFilter);
-    }
+    statusFilters.textContent = currentStatusFilter === 'all' ? 'None' : capitalizeFirstLetter(currentStatusFilter);
+    genreFilters.textContent = currentGenreFilter === 'all' ? 'None' : capitalizeFirstLetter(currentGenreFilter);
 }
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Shuffle function to randomize the order of collaboration items
+function shuffleCollaborations() {
+    const collabList = document.querySelector('.collab-list');
+    const collabItems = Array.from(collabList.children);  // Convert the NodeList to an array
+
+    // Shuffle array using Fisher-Yates algorithm
+    for (let i = collabItems.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [collabItems[i], collabItems[j]] = [collabItems[j], collabItems[i]];
+    }
+
+    // Clear the current order and append shuffled items
+    collabList.innerHTML = '';
+    collabItems.forEach(item => collabList.appendChild(item));
 }
