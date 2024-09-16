@@ -1,279 +1,130 @@
-/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
+    background-color: #2b2b2b;
+    color: #f5f5f5;
     margin: 0;
     padding: 0;
-    background-color: #2b2b2b;
-    color: #fff;
 }
 
-/* Header Styling */
 header {
-    position: sticky;
-    top: 0;
-    background-color: #1e1e1e; /* Slightly lighter dark color for header */
-    color: #e0e0e0; /* Light text color for header */
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000; /* Ensure it stays on top */
+    background-color: #1d1d1d;
+    padding: 1rem;
+    text-align: center;
 }
 
-.header-left h1 {
+header h1 {
     margin: 0;
-    padding: 0 20px;
 }
 
-.header-right {
-    display: flex;
-}
-
-.header-right a {
-    color: #00aaff; /* Bright color for links */
-    text-decoration: none;
-    margin: 0 15px;
-    padding: 10px 15px; /* Add padding to increase clickable area */
-    border-radius: 5px; /* Rounded corners for background change */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-}
-
-.header-right a:hover {
-    background-color: #333; /* Dark background color on hover */
-    color: #fff; /* Light text color on hover */
-}
-
-/* Main Content Styling */
-main {
-    padding: 20px;
-}
-
-/* Search Bar Styling */
-#search {
-    width: 100%;
-    max-width: 500px; /* Restrict maximum width */
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #fff;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
-}
-
-/* Filter Containers Styling */
-#genre-filters, #status-filters {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Allow filters to wrap on small screens */
-}
-
-/* Checkbox Filter Tag Styling */
-.filter-tag {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    margin-bottom: 5px; /* Add some spacing below each filter */
-}
-
-.filter-tag input {
-    display: none; /* Hide default checkbox */
-}
-
-.filter-tag label {
-    position: relative;
-    display: inline-block;
-    padding-left: 30px; /* Space for custom checkbox */
-    cursor: pointer;
-    font-size: 14px; /* Adjust font size */
-}
-
-/* Custom Checkbox Styling */
-.filter-tag label::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    border: 2px solid #555;
-    background-color: #333;
-    border-radius: 4px;
-}
-
-/* Checked State Styling */
-.filter-tag input:checked + label::before {
-    background-color: #4caf50; /* Color for checked state */
-    border: 2px solid #4caf50;
-}
-
-/* Checked State Indicator */
-.filter-tag input:checked + label::after {
-    content: '';
-    position: absolute;
-    left: 6px;
-    top: 11px;
-    width: 8px;
-    height: 8px;
-    border: 2px solid #fff;
-    border-radius: 2px;
-    background-color: #fff;
-}
-
-/* Playlist Styling */
-#playlist {
+#filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* Song Card Styling */
-.song {
-    display: flex;
-    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
     background-color: #333;
-    padding: 10px;
-    border-radius: 8px;
+}
+
+#filters select,
+#filters input {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+#filters button {
+    padding: 0.5rem;
+    background-color: #ff5722;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#filters button:hover {
+    background-color: #e64a19;
+}
+
+#songList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.song-item {
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.song-item:hover {
+    transform: scale(1.05);
+}
+
+.song-item img {
     width: 100%;
-    max-width: 600px;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
-    position: relative; /* Needed for positioning the image link */
+    border-radius: 0.5rem;
 }
 
-/* Song Image Styling */
-.song img {
-    width: 100px;
-    height: 100px;
-    margin-right: 15px;
-    cursor: pointer; /* Indicate that the image is clickable */
+.song-item h3 {
+    margin: 0.5rem 0;
 }
 
-/* Song Title Styling */
-.song h3 {
+.song-item p {
     margin: 0;
-    font-size: 1.2em;
-    cursor: pointer; /* Indicate that the title is clickable */
 }
 
-/* Song Artist Styling */
-.song p {
-    margin: 5px 0;
+.song-tags {
+    display: flex;
+    gap: 0.5rem;
 }
 
-/* Genre Tag Styling */
-.genre-tag {
-    display: inline-block;
-    padding: 3px 6px;
-    margin-right: 5px;
-    border-radius: 4px;
-    background-color: #555;
-}
-
-/* Status Tag Styling */
+.genre-tag,
 .status-tag {
-    display: inline-block;
-    padding: 5px 10px; /* Adjust padding to make the tags larger */
-    margin-right: 5px;
-    border-radius: 4px; /* Rounded corners */
-    font-size: 14px; /* Adjust font size if needed */
-}
-
-.status-tag.open {
-    background-color: green;
+    background-color: #555;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
     color: #fff;
 }
 
-.status-tag.taken {
-    background-color: red;
-    color: #fff;
+.genre-tag {
+    background-color: #444;
 }
 
-.status-tag.finished {
-    background-color: grey;
-    color: #fff;
+.status-tag {
+    background-color: #666;
 }
 
-.status-tag.in-progress {
-    background-color: orange;
-    color: #fff;
+.status-tag[data-status="OPEN"] {
+    background-color: #4caf50;
 }
 
-@keyframes darkRainbow {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
+.status-tag[data-status="IN-PROGRESS"] {
+    background-color: #ff9800;
 }
 
-.status-tag.priority {
-    background: linear-gradient(135deg, #ff0099, #493240, #6e2c91, #e44d26, #00a859); /* Example dark rainbow colors */
-    background-size: 400% 400%;
-    color: #fff;
-    font-weight: bold;
-    animation: darkRainbow 10s ease infinite;
+.status-tag[data-status="TAKEN"] {
+    background-color: #f44336;
 }
 
-
-
-/* Responsive Design for Song Cards */
-@media (max-width: 768px) {
-    .song {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .song img {
-        width: 80px;
-        height: 80px;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .song h3 {
-        font-size: 1.1em;
-    }
-
-    .song p {
-        font-size: 0.9em;
-    }
+.status-tag[data-status="FINISHED"] {
+    background-color: #9e9e9e;
 }
 
-@media (max-width: 480px) {
-    .song img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .song h3 {
-        font-size: 1em;
-    }
-
-    .song p {
-        font-size: 0.8em;
-    }
-}
-@media (max-width: 768px) {
-    .header-left h1 {
-        padding: 0 10px; /* Adjust padding for smaller screens */
-    }
-
-    .header-right {
-        flex-direction: column; /* Stack links vertically */
-        align-items: center;
-    }
-
-    .header-right a {
-        margin: 5px 0; /* Adjust margin for stacked links */
-        padding: 8px 12px; /* Adjust padding for smaller screens */
-    }
+.status-tag[data-status="PUBLISHED"] {
+    background-color: #2196f3;
 }
 
-@media (max-width: 480px) {
-    .header-left h1 {
-        font-size: 1.2em; /* Smaller font size for smaller screens */
-    }
-
-    .header-right a {
-        font-size: 0.9em; /* Smaller font size for links */
-        padding: 6px 10px; /* Further adjust padding */
-    }
+#filters select {
+    flex: 1;
+}
+a{
+    text-decoration: none;
+    color:#f5f5f5;
+}
+.ccav{
+    font-style: italic;
 }

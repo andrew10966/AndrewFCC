@@ -3,39 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collaborations Playlist</title>
+    <title>AndrewFCC - Collaborations</title>
     <link rel="stylesheet" href="collabs.css">
 </head>
 <body>
     <header>
-        <div class="header-left">
-            <h1>AndrewFCC</h1>
-        </div>
-        <nav class="header-right">
-            <a href="\index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="\music\music.html">Songs</a>
-            <a href="\portfol\creations.html">Maps</a>
-            <a href="\collab\collabs.html">Collaborations</a>
-        </nav>
+        <h1>AndrewFCC - Collaborations</h1>
     </header>
-    
     <main>
         <section id="filters">
-            <input type="text" id="search" placeholder="Search for a song or artist">
-            <div id="genre-filters">
-                <!-- Genre checkboxes will be dynamically inserted here -->
-            </div>
-            <div id="status-filters">
-                <!-- Status checkboxes will be dynamically inserted here -->
-            </div>
+            <select id="genreFilter">
+                <option value="all">All Genres</option>
+                <option value="HARDCORE">Hardcore</option>
+                <option value="HIP-HOP">Hip-Hop</option>
+                <option value="POP">Pop</option>
+                <option value="LATIN">Latin</option>
+                <option value="RAP">Rap</option>
+                <option value="ELECTRONIC">Electronic</option>
+            </select>
+
+            <select id="statusFilter">
+                <option value="all" id="ccav">searching by availability is not available</option>
+            </select>
+
+            <input type="text" id="searchInput" placeholder="Search by title or artist">
+            <button id="clearFilters">Clear Filters</button>
         </section>
-        
-        <section id="playlist">
-            <!-- Playlist songs will be dynamically inserted here -->
-        </section>
+
+        <section id="songList"></section>
     </main>
-    
     <script src="collabs.js"></script>
 </body>
 </html>
