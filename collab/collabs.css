@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #2b2b2b;
-    color: #f5f5f5;
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -12,119 +12,134 @@ header {
     text-align: center;
 }
 
-header h1 {
+
+h1 {
     margin: 0;
+}
+
+input#search {
+    width: calc(100% - 20px); /* Adjusted width to account for padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
 }
 
 #filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: #333;
-}
-
-#filters select,
-#filters input {
-    padding: 0.5rem;
-    font-size: 1rem;
-}
-
-#filters button {
-    padding: 0.5rem;
-    background-color: #ff5722;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-#filters button:hover {
-    background-color: #e64a19;
-}
-
-#songList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.song-item {
-    background-color: #333;
-    border: 1px solid #444;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    width: 200px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.song-item:hover {
-    transform: scale(1.05);
-}
-
-.song-item img {
-    width: 100%;
-    border-radius: 0.5rem;
-}
-
-.song-item h3 {
-    margin: 0.5rem 0;
-}
-
-.song-item p {
-    margin: 0;
-}
-
-.song-tags {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.genre-tag,
-.status-tag {
-    background-color: #555;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    color: #fff;
-}
-
-.genre-tag {
-    background-color: #444;
-}
-
-.status-tag {
-    background-color: #666;
-}
-
-.status-tag[data-status="OPEN"] {
-    background-color: #4caf50;
-}
-
-.status-tag[data-status="IN-PROGRESS"] {
-    background-color: #ff9800;
-}
-
-.status-tag[data-status="TAKEN"] {
-    background-color: #f44336;
-}
-
-.status-tag[data-status="FINISHED"] {
-    background-color: #9e9e9e;
-}
-
-.status-tag[data-status="PUBLISHED"] {
-    background-color: #2196f3;
+    padding: 10px; /* Add padding inside the container */
+    max-width: 1000px; /* Set a maximum width for the filters container */
+    width: 100%; /* Ensure it takes up the full width available up to the max-width */
+    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
 }
 
 #filters select {
-    flex: 1;
+    width: calc(50% - 10px); /* Adjusted to fit within the container */
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Buttons (if any) */
+#clear-filters {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+#clear-filters:hover {
+    background-color: #6e2626;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#collab-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.collab-item {
+    background-color: #333;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 10px;
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.collab-item:hover {
+    background-color: #444;
+    transform: scale(1.05); /* Increase size by 5% */
+}
+
+.cover-img {
+    width: 25%;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.play-pause {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 24px;
+}
+
+.tags {
+    margin-top: 10px;
+}
+
+.status-tag, .genre-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+.status-tag.Open { background-color: green; }
+.status-tag.Taken { background-color: orange; }
+.status-tag.In-Progress { background-color: blue; }
+.status-tag.Closed { background-color: red; }
+.status-tag.Finished { background-color: pink; }
+
+.genre-tag.Hardcore { background-color: rgb(92, 92, 92); }
+.genre-tag.Electronic { background-color: rgb(92, 92, 92); }
+.genre-tag.Pop { background-color: rgb(92, 92, 92); }
+.genre-tag.Hip-Hop { background-color: rgb(92, 92, 92); }
+.genre-tag.Rap { background-color: rgb(92, 92, 92); }
+
+@media (max-width: 768px) {
+    .collab-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .collab-item {
+        width: 100%;
+    }
 }
 a{
     text-decoration: none;
-    color:#f5f5f5;
-}
-.ccav{
-    font-style: italic;
+    color: white;
 }
