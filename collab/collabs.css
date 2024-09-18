@@ -4,12 +4,14 @@ body {
     color: white;
     margin: 0;
     padding: 0;
+    margin-left: 10px;
 }
 
 header {
     background-color: #1d1d1d;
     padding: 1rem;
     text-align: center;
+    margin-left: -10px !important;
 }
 
 
@@ -18,9 +20,10 @@ h1 {
 }
 
 input#search {
-    width: calc(100% - 20px); /* Adjusted width to account for padding */
+    width: calc(50% - 20px);
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     border: 2px solid #555;
     border-radius: 5px;
     background-color: #333;
@@ -28,23 +31,23 @@ input#search {
 }
 
 #filters {
-    padding: 10px; /* Add padding inside the container */
-    max-width: 1000px; /* Set a maximum width for the filters container */
-    width: 100%; /* Ensure it takes up the full width available up to the max-width */
-    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
+    padding: 10px;
+    max-width: 1000px; 
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 #filters select {
-    width: calc(50% - 10px); /* Adjusted to fit within the container */
+    width: calc(50% - 10px); 
     padding: 10px;
     border: 2px solid #555;
     border-radius: 5px;
     background-color: #333;
     color: white;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    box-sizing: border-box; 
 }
 
-/* Buttons (if any) */
+
 #clear-filters {
     background-color: #444;
     color: white;
@@ -81,12 +84,12 @@ select {
     width: calc(25% - 20px);
     box-sizing: border-box;
     position: relative;
-    transition: transform 0.3s ease; /* Smooth transition for scaling */
+    transition: transform 0.3s ease;
 }
 
 .collab-item:hover {
     background-color: #444;
-    transform: scale(1.05); /* Increase size by 5% */
+    transform: scale(1.05);
 }
 
 .cover-img {
@@ -126,7 +129,107 @@ select {
 .genre-tag.Electronic { background-color: rgb(92, 92, 92); }
 .genre-tag.Pop { background-color: rgb(92, 92, 92); }
 .genre-tag.Hip-Hop { background-color: rgb(92, 92, 92); }
-.genre-tag.Rap { background-color: rgb(92, 92, 92); }
+.genre-tag.RNB { background-color: rgb(92, 92, 92); }
+.genre-tag.Latin { background-color: rgb(92, 92, 92); }
+
+.collab-item-pr {
+  background: linear-gradient(45deg, 
+      red, 
+      orange, 
+      yellow, 
+      green, 
+      blue, 
+      indigo, 
+      violet);
+  background-size: 400% 400%;
+  animation: rainbowGlow 10s ease-in-out infinite;
+  border: 2px solid gold;
+  color: #fff;
+  padding: 10px;
+}
+
+
+@keyframes rainbowGlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.genre-tag.Priority {
+    color: white;
+    font-size: 15px;
+    font-style:oblique;
+    background: linear-gradient(45deg, 
+    rgb(138, 0, 0), 
+    rgb(138, 90, 1), 
+    rgb(138, 138, 0), 
+    green, 
+    blue, 
+    indigo, 
+    rgb(134, 73, 134));
+  border-color: gold;
+  box-shadow: 0 0 15px rgba(255, 223, 0, 0.5);
+  animation: priorityAnimation 3s linear infinite;
+}
+
+@keyframes priorityAnimation {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+  }
+  14% {
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+  }
+  28% {
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
+  }
+  42% {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+  }
+  57% {
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.8);
+  }
+  71% {
+    box-shadow: 0 0 15px rgba(75, 0, 130, 0.8); 
+  }
+  85% {
+    box-shadow: 0 0 15px rgba(148, 0, 211, 0.8); 
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); 
+  }
+}
+
+#faq{
+  background-color: #1d1d1d;
+  padding: 1rem;
+  margin-left: -10px !important;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+#faq ol {
+  display: inline-block; 
+  text-align: left; 
+  margin: 0; 
+  padding: 0; 
+}
+
+#faq ul {
+  margin: 0;
+  padding-left: 0px;
+}
+
+#faq li {
+  margin: 0; 
+}
+
+
 
 @media (max-width: 768px) {
     .collab-item {
