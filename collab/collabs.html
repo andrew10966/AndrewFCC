@@ -8,7 +8,6 @@
     <script src="collabs.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Inline CSS */
         .popup {
             display: none;
             position: fixed;
@@ -57,25 +56,22 @@
             right: -60px;
         }
 
-        /* Default video size for desktop */
         iframe {
             width: 80vw;
-            height: 45vw; /* 16:9 ratio */
+            height: 45vw;
         }
 
-        /* Media query for tablets (screens 768px or smaller) */
         @media (max-width: 768px) {
             iframe {
                 width: 90vw;
-                height: 50vw; /* 16:9 ratio */
+                height: 50vw;
             }
         }
 
-        /* Media query for mobile phones (screens 480px or smaller) */
         @media (max-width: 480px) {
             iframe {
                 width: 100vw;
-                height: 56.25vw; /* 16:9 ratio for smaller screens */
+                height: 56.25vw;
             }
         }
 
@@ -121,7 +117,6 @@
         </div>
         <div id="collab-list"><!-- Tracks, from js, show up here --></div>
         <script>
-            // Inline JavaScript
             let currentVideo = 0;
             const videoUrls = [
                 "https://www.youtube.com/embed/ta5eypE_3n4",
@@ -135,12 +130,12 @@
             window.onload = function() {
                 setTimeout(function() {
                     document.getElementById("videoPopup").style.display = "flex";
-                }, 500); // Delay to show popup, can adjust or remove
+                }, 500);
             };
     
             function closePopup() {
                 document.getElementById("videoPopup").style.display = "none";
-                document.getElementById("videoFrame").src = ""; // Stops the video when popup is closed
+                document.getElementById("videoFrame").src = "";
                 setTimeout(function() {
                     document.getElementById("videoFrame").src = videoUrls[currentVideo];
                 }, 100);
