@@ -4,8 +4,8 @@ CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
 This is to prevent anyone from doing anything malicious
 */
 // My personal Id's, you are free to use them. To get your own go to https://developer.spotify.com/
-const clientId = "a8d951c9a7764fd0ba2ad2ceda8d8404";
-const clientSecret = "a2cfb0c9d0154dd2b178e84c446c4612";
+const clientId = "c1fa42a799fb45bbbeb59c08944142c2";
+const clientSecret = "92a4e5f2636f4adf805076b35cfb9a57";
 const tokenUrl = "https://accounts.spotify.com/api/token";
 const apiUrl = "https://api.spotify.com/v1/tracks/";
 
