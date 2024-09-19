@@ -3,180 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AndrewFCC - Collaborations</title>
-    <link rel="stylesheet" href="collabs.css">
-    <script src="collabs.js" defer></script>
+    <title>AndrewFCC</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
 
-        .popup-content {
-            position: relative;
-            padding: 2px;
-            background-color: #fff;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 30px;
-            cursor: pointer;
-            background-color: #fff;
-            border: none;
-            padding: 10px;
-        }
-
-        .arrow-left {
-            left: -60px;
-        }
-
-        .arrow-right {
-            right: -60px;
-        }
-
-        iframe {
-            width: 80vw;
-            height: 45vw;
-        }
-
-        @media (max-width: 768px) {
-            iframe {
-                width: 90vw;
-                height: 50vw;
-            }
-        }
-
-        @media (max-width: 480px) {
-            iframe {
-                width: 100vw;
-                height: 56.25vw;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
+    <div class="container">
         <h1>AndrewFCC - Collabs</h1>
-        <a href="#faq"><p>faq</p></a>
-    </header>
+        <input type="text" id="search" placeholder="Search by song title or artist..." />
 
-    <div id="videoPopup" class="popup">
-        <div class="popup-content">
-            <div class="popup-inner">
-                <iframe id="videoFrame" 
-                src="https://www.youtube.com/embed/ta5eypE_3n4" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <button class="arrow arrow-left" onclick="previousVideo()">&#8249;</button>
-                <button class="arrow arrow-right" onclick="nextVideo()">&#8250;</button>
+        <div class="filters">
+            <div class="filter-group">
+                <h3>Filter by Status:</h3>
+                <label><input type="checkbox" class="status-checkbox" value="Open"> Open</label>
+                <label><input type="checkbox" class="status-checkbox" value="Closed"> Closed</label>
+                <label><input type="checkbox" class="status-checkbox" value="Finished"> Finished</label>
             </div>
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-        </div>
-    </div>
-        <input type="text" id="search" placeholder="Search by Title or Artist">
-        <p><i>Open- Available, Taken- Not available, In-Progress- I'm currently lighting this, Closed- Published, Finished- The lights are done</i></p>
-        <div id="filters">
-            <select id="status" multiple>
-                <option value="Open">Open</option>
-                <option value="Taken">Taken</option>
-                <option value="In-Progress">In-Progress</option>
-                <option value="Closed">Closed</option>
-                <option value="Finished">Finished</option>
-            </select>
-            <select id="genre" multiple>
-                <option value="Hardcore">Hardcore</option>
-                <option value="Electronic">Electronic</option>
-                <option value="Pop">Pop</option>
-                <option value="Hip-Hop">Hip-Hop</option>
-                <option value="RNB">R&B</option>
-                <option value="Latin">Latin</option>
-            </select>
+        
+            <div class="filter-group">
+                <h3>Filter by Genre:</h3>
+                <label><input type="checkbox" class="genre-checkbox" value="Hardcore"> Hardcore</label>
+                <label><input type="checkbox" class="genre-checkbox" value="Electronic"> Electronic</label>
+                <label><input type="checkbox" class="genre-checkbox" value="Pop"> Pop</label>
+                <label><input type="checkbox" class="genre-checkbox" value="Hip-Hop"> Hip-Hop</label>
+                <label><input type="checkbox" class="genre-checkbox" value="Latin"> Latin</label>
+            </div>        
 
             <button id="clear-filters">Clear Filters</button>
-
         </div>
-        <div id="collab-list"><!-- Tracks, from js, show up here --></div>
 
-        <div id="faq">
-            <ol>
-                <li>
-                    What is this?
-                    <ul><li>This is a site where you can find you can find all the songs Ive been wanting to light</li></ul>
-                </li>
-                <li>
-                    Do I have to be an experienced mapper?
-                    <ul><li>No. New mappers and veteran mappers are all allowed to inquire, I do not care about experience</li></ul>
-                </li>
-                <li>
-                    Can I use this site for myself?
-                    <ul><li>Yes! Dm me and I'll set it up for you asap. This site does have its flaws so if you can I would reccomend you build your own</li></ul>
-                </li>
-                <li>
-                    What is the priority tag?
-                    <ul><li>The priority tags only purpose is to show people songs im just a bit more excited and willing to light! <b>This does not mean I'll ignore non-priority songs</b></li></ul>
-                </li>
-                <li>
-                    Why do some songs not play a preview?
-                    <ul><li>Honestly dont know... You tell me please</li></ul>
-                </li>
-            </ol>
-        </div>
-        <script>
-            let currentVideo = 0;
-            const videoUrls = [
-                "https://www.youtube.com/embed/ta5eypE_3n4",
-                "https://www.youtube.com/embed/1gKziiW3ib8",
-                "https://www.youtube.com/embed/I69hAFv34wY",
-                "https://www.youtube.com/embed/RRXilqVDXfI",
-                "https://www.youtube.com/embed/8NVG0JaNW2E",
-                "https://www.youtube.com/embed/mLxfqTa4ssw"
-            ];
-    
-            window.onload = function() {
-                setTimeout(function() {
-                    document.getElementById("videoPopup").style.display = "flex";
-                }, 500);
-            };
-    
-            function closePopup() {
-                document.getElementById("videoPopup").style.display = "none";
-                document.getElementById("videoFrame").src = "";
-                setTimeout(function() {
-                    document.getElementById("videoFrame").src = videoUrls[currentVideo];
-                }, 100);
-            }
-    
-            function nextVideo() {
-                currentVideo = (currentVideo + 1) % videoUrls.length;
-                document.getElementById("videoFrame").src = videoUrls[currentVideo];
-            }
-    
-            function previousVideo() {
-                currentVideo = (currentVideo - 1 + videoUrls.length) % videoUrls.length;
-                document.getElementById("videoFrame").src = videoUrls[currentVideo];
-            }
-        </script>
+        <div id="collab-list" class="collab-list"></div>
+    </div>
 </body>
 </html>
