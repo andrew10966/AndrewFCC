@@ -78,6 +78,7 @@ button#clear-filters:hover {
     width: 23%;
     max-width: 250px;
     position: relative;
+    display: block;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -99,22 +100,21 @@ button#clear-filters:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -125%);
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100px;
     height: 100px;
     cursor: pointer;
-    z-index: 1;
 }
 
 .play-pause-container svg {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
 }
 
 .play-pause-container circle {
@@ -131,7 +131,6 @@ button#clear-filters:hover {
     position: absolute;
     font-size: 2em;
     color: white;
-    z-index: 2
 }
 
 .playing .play-pause-container circle {
