@@ -106,6 +106,7 @@ button#clear-filters:hover {
     width: 100px;
     height: 100px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .play-pause-container svg {
@@ -130,6 +131,7 @@ button#clear-filters:hover {
     position: absolute;
     font-size: 2em;
     color: white;
+    z-index: 2
 }
 
 .playing .play-pause-container circle {
