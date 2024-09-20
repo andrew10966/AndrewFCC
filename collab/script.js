@@ -199,10 +199,11 @@ function filterCollabs() {
         const collabStatuses = Array.from(collab.querySelectorAll('.status-tag')).map(tag => tag.dataset.status);
         const collabGenres = Array.from(collab.querySelectorAll('.genre-tag')).map(tag => tag.dataset.genre);
         const collabName = collab.querySelector('h3 a').textContent.toLowerCase();
-        
+        const collabArtist = collab.querySelector('p').textContent.toLowerCase().replace('artist(s): ', '');
+
         const matchesStatus = selectedStatuses.length === 0 || selectedStatuses.some(status => collabStatuses.includes(status));
         const matchesGenre = selectedGenres.length === 0 || selectedGenres.some(genre => collabGenres.includes(genre));
-        const matchesSearch = searchQuery === '' || collabName.includes(searchQuery);
+        const matchesSearch = searchQuery === '' || collabName.includes(searchQuery) || collabArtist.includes(searchQuery);
 
         // Show if all conditions are met
         if (matchesStatus && matchesGenre && matchesSearch) {
