@@ -105,7 +105,7 @@ iframe {
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
+    width: 10%;
     height: auto;
     position: relative;
     margin-bottom: 20px; /* Adds space below sidebar on mobile */
