@@ -1,115 +1,122 @@
 /* Global reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #333;
-    color: #c7c7c7;
-    line-height: 1.6;
-  }
-  
-  .container {
-    display: flex;
-  }
-  
-  /* Sidebar styling */
-  .sidebar {
-    width: 250px;
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
-    position: fixed; /* Keeps the sidebar fixed when scrolling */
-    height: 100%;
-    overflow-y: auto; /* Scroll inside sidebar if needed */
-  }
-  
-  .sidebar h2 {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  .sidebar ul li {
-    margin-bottom: 10px;
-  }
-  
-  .sidebar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1em;
-  }
-  
-  .sidebar ul li a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Content styling */
-  .content {
-    margin-left: 270px; /* Leaves space for the fixed sidebar */
-    padding: 20px;
-    max-width: 60%;
-  }
-  
-  .content h1, .content h2 {
-    color: #ffffff;
-    margin-top: 20px;
-  }
-  
-  .content h3 {
-    color: #ffffff;
-    margin-top: 20px;
-  }
-  
-  /* Style for the code block background and text */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #c7c7c7;
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Allows flex items to wrap */
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  position: fixed; /* Keeps the sidebar fixed when scrolling */
+  height: 100%;
+  overflow-y: auto; /* Scroll inside sidebar if needed */
+}
+
+.sidebar h2 {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Content styling */
+.content {
+  margin-left: 270px; /* Leaves space for the fixed sidebar */
+  padding: 20px;
+  max-width: 60%;
+}
+
+.content h1, .content h2, .content h3 {
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+/* Style for the code block background and text */
 pre {
-    background-color: #2b2b2b; /* Discord-like dark background */
-    color: #f8f8f2; /* Light text color */
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-    font-size: 0.9em;
-  }
-  
-  /* Style for the code itself */
-  code {
-    font-family: 'Consolas', 'Menlo', 'Monaco', 'Courier New', monospace !important;
-  }
-  
-  /* Add highlighting for JavaScript keywords */
-  .language-js .keyword {
-    color: #ff79c6; /* Bright pink for keywords */
-  }
-  
-  .language-js .string {
-    color: #f1fa8c; /* Yellow for strings */
-  }
-  
-  /* To ensure the code looks clean, you can also use a monospace font */
-a{
-    color: #a1ddff;
-}  
-hr{
-    width: 100%;
-    margin-top: 20px;
+  background-color: #2b2b2b; /* Discord-like dark background */
+  color: #f8f8f2; /* Light text color */
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: 0.9em;
+}
+
+/* Style for the code itself */
+code {
+  font-family: 'Consolas', 'Menlo', 'Monaco', 'Courier New', monospace !important;
+}
+
+a {
+  color: #a1ddff;
+}
+
+hr {
+  width: 100%;
+  margin-top: 20px;
 }
 
 .video-container iframe {
+  width: 100%;
+  height: auto;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+iframe {
+  padding: 4px;
+  background-color: #ffffff;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .sidebar {
     width: 100%;
     height: auto;
-    max-width: 560px;
-    aspect-ratio: 16 / 9; 
-    display: block;
-}
-iframe{
-    padding: 4px;
-    background-color: #ffffff;
+    position: relative;
+    margin-bottom: 20px; /* Adds space below sidebar on mobile */
+  }
+  
+  .content {
+    margin-left: 0;
+    max-width: 100%; /* Make content fill the screen */
+  }
+
+  .container {
+    flex-direction: column;
+  }
 }
