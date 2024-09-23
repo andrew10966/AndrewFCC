@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FCC Guides</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Wiki Navigation</h2>
+      <hr>
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#plugins">Tools Overview</a></li>
+        <li><a href="#chromapper">ChroMapper Basics</a></li>
+        <li><a href="#chroma-basics">Chroma+ Basics</a></li>
+        <li><a href="#experience">Examples</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <!-- Introduction -->
+      <section id="intro">
+        <h1>FCC Guides</h1>
+        <p>Welcome to my iteration of a chroma wiki. As a beginner myself, absolutely no coding knowledge before BeatSaber, some of these other wikis were and sometimes still are super confusing. Now that I'm a bit more experienced I feel like I can help ease some information down.</p>
+        <br><p> Heres a quick breakdown of what this will go over:</p>
+        <ul>
+            <li>Plugins</li>
+            <li>Working in Chromapper</li>
+            <li>Working in VSCode<ul><li>Js</li><li>Node.js</li></ul></li>
+            <li>Heck<ul><li>Environment enhancements</li><li>Geometry</li><li>Animations</li></ul></li>
+            <li>For loops and other QOL shortcuts in Js</li>
+        </ul>
+      </section>
+      <hr>
+
+      <!-- Plugins Overview -->
+      <section id="plugins">
+        <h2>Plugins</h2> <p>(Note that none of these are necessarily needed)</p>
+        <ul>
+          <li><a href="https://github.com/Swifter1243/Enlighten" target="_blank"><strong>ENLIGHTEN</strong></a>: Quality-of-life plugin for step gradients and Chroma lighting.</li>
+          <li><a href="https://github.com/MoistSac/ChroMapper-PropEdit" target="_blank"><strong>PROP EDIT</strong></a>: Essential plugin for node editing in ChroMapper.</li>
+          <li><a href="https://github.com/MoistSac/ChroMapper-ExtendedLightIDs" target="_blank"><strong>EXTENDED LIGHT IDS</strong></a>: A must-have for environment enhancements.</li>
+        </ul>
+        <h2>Tools</h2>
+        <ul>
+          <li><a href="https://code.visualstudio.com/"><strong>VSCode</strong></a> - Useful text/code editor that is preferred for BeatSaber</li>
+          <li><a href="https://nodejs.org/en/download/prebuilt-installer"><strong>Node.js</strong></a> - Used to run js</li>
+        </ul>
+      </section>
+      <hr>
+
+      <!-- ChroMapper Basics -->
+      <section id="chromapper">
+        <h2>ChroMapper Basics</h2>
+        <p>Usually Chromapper is your best option for Chroma and it is widely used offering lots of support</p>
+        <h3>Strobe Generator</h3>
+        <ol>
+          <li>Basic Event Strobe
+            <ul>
+              <li>Value A - (The first event) What type/t the event starts on. eg; on/off</li>
+              <li>Value B - (The second event) What type/t the event ends on. eg; flash/fade</li>
+              <li>Color, Flip Colors, Dynamic - Not really important as we are usually setting our own colors via Chroma</li>
+              <li>Strobe Interval - How fast the strobe switches from A to B</li>
+              <li>Strobe Easing - Switching this from linear will make it so the strobe speeds up over time to the interval</li>
+            </ul>
+          </li>
+          <li>Color Gradients
+            <ul>
+              <p><i>A transition of colors between 2 events</i></p>
+              <li>Chroma Easing - How fast the gradient switches from A to B</li>
+              <li>Lerp type
+                <ul>
+                  <p><i>From my understanding...</i></p>
+                  <li>RGB - For example lets use rgb(221, 68, 213) to rgb(50, 150, 100). When we use this type the all values switch at the same time to get the end color. Red (221 → 50) Green (68 → 150) Blue (213 → 100)</li>
+                  <li>HSV - Simply understand that HSV is Hue, Saturation, and Value. So instead of individually adjusting each value HSV uses something like a color wheel to adjust the Hue making a smoother gradient from point A to B</li>
+              </ul>
+            </li>
+            </ul>
+          </li>
+          <li>Precise Laser Speed Interpolation
+            <ul>
+              <p><i>A transition of speed between 2 events</i></p>
+              <li>Placement Interval - How many beats apart the events are placed</li>
+              <li>Laser Speed Easing - Unlike the easing for strobes this doesn't add more events as time goes. Instead it adjusts the value of each event over time</li>
+              <li>Lock Laser Rotation - Ensures that the  lasers rotate in the selected option (Spin Direction)</li>
+              <li>Unique Laser Directions - Ensures left and right lasers go in a different way/direction</li>
+              <li>Decimal Precision - Best to just keep at 1 (default)</li>
+            </ul>
+          </li>
+          <li>Chroma Step Gradient
+            <ul>
+              <p><i>A transition of colors between 2 events</i> Unlike Color Gradients Chroma step places many events to make the gradient</p>
+              <li>Value A - What type/t each event placed will be (off on flash fade)</li>
+              <li>Color, Flip Colors - Again, not too important as well be setting our own colors via Chroma</li>
+              <li>Strobe Interval - How many beats apart the events are placed. Use either 8 or 16 for smooth gradients</li>
+              <li>Chroma Easing - How fast the color switches between events</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Chroma Menu</h3>
+        <ol>
+          <li>Color Selection
+            <ul>
+              <li>There are many ways to select colors on Chromapper, this being the most precise if you want a specific color</li>
+            </ul>
+          </li>
+          <li>Global Color Overrides
+            <ul>
+              <li>This allows you to change colors of notes, lights (vanilla lights), boosts, and walls. However I mostly use this if the map environment has confusing colors eg; green day. Ill set the colors to red and blue then before publishing I remove the overrides</li>
+            </ul>
+          </li>
+          <li>Chroma Tools
+            <ul>
+              <li>Place Chroma Colored Objects - Turning this on places notes, bombs, and walls in the selected color</li>
+              <li>Place Chroma RGB Events - Instead of the normal red blue events when you place an event with this on an event will be placed with the selected color</li>
+              <li>Color Picker (off chroma object) - With this on, clicking on a Chroma event will select that same color</li>
+              <li>Paint Selected Objects - Selecting multiple objects and clicking on this will color all selected objects the color selected</li>
+              <li>Color Picker - Where you can select/make your own light colors
+                <ul>
+                  <p><i>Lets break this down</i></p>
+                  <li>H - Hue, The color</li>
+                  <li>S - Saturation, The intensity of the color</li>
+                  <li>V - Value, The light/darkness of the color</li>
+                  <li>RGB - Red, Green, Blue. These values can be set above 1 but doing so can make the lights <strong>extremely bright</strong></li>
+                  <li>(RGB) A - Alpha, How opaque (Visible) or transparent (Invisible) the color Is. You can put the alpha above 1 which makes it <strong>extremely bright</strong></li>
+                </ul>
+              </li>
+              <li>Color Preset - Save any color you want by clicking the + icon, to remove the color right click it</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <hr>
+
+      <!-- Chroma+ Basics -->
+      <section id="chroma-basics">
+        <h2>Chroma+ Basics</h2>
+        <p>The way I think of chroma+ is anything outside of Chromapper like js editing or .dat editing. So stuff like custom colors and light Ids</p>
+        <br><p><i>Breakdown</i></p>
+        <ul>
+          <li>Custom Settings</li>
+          <li>Environment Enhancements
+            <ul>
+              <li>What is an environment object</li>
+              <li>How to get environment objects</li>
+              <li>How to duplicate environment objects</li>
+              <li>Other properties</li>
+            </ul>
+          </li>
+          <li>Geometry
+            <ul>
+              <li>What is geometry</li>
+              <li>How to make geometry</li>
+              <li>Geometry shapes and materials</li>
+              <li>Other properties</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>Settings</h2>
+        <p>Ever spend so much time lighting, then, request it to a streamer and they have static lights? This will show 'em! With custom settings you can ensure everyone plays on the settings you intended <i>note that they can still deny the settings</i></p>
+        <h3>Available Settings</h3>
+        <ol>
+          <li>"_playerOptions"
+            <ul>
+              <li>"_leftHanded": (bool)</li>
+              <li>"_playerHeight": (float)</li>
+              <li>"_automaticPlayerHeight": (bool)</li>
+              <li>"_sfxVolume": (float)</li>
+              <li>"_reduceDebris": (bool)</li>
+              <li>"_noTextsAndHuds": (bool)</li>
+              <li>"_noFailEffects": (bool) Hidden setting, this will hide "Miss" text.</li>
+              <li>"_advancedHud": (bool)</li>
+              <li>"_autoRestart": (bool)</li>
+              <li>"_saberTrailIntensity": (float)</li>
+              <li>"_noteJumpDurationTypeSettings": (Dynamic, Static)</li>
+              <li>"_noteJumpFixedDuration": (float)</li>
+              <li>"_noteJumpStartBeatOffset": (float)</li>
+              <li>"_hideNoteSpawnEffect": (bool)</li>
+              <li>"_adaptiveSfx": (bool)</li>
+              <li>"_environmentEffectsFilterDefaultPreset": <b>AllEffects makes it so player plays with lights!</b> (AllEffects, Strobefilter, NoEffects)</li>
+              <li>"_environmentEffectsFilterExpertPlusPreset": <b>AllEffects makes it so player plays with lights!</b> (AllEffects, Strobefilter, NoEffects)</li></li>
+            </ul>
+          </li>
+          <li>"_modifiers"
+            <ul>
+              <li>"_energyType": (Bar, Battery)</li>
+              <li>"_noFailOn0Energy": (bool)</li>
+              <li>"_instaFail": (bool)</li>
+              <li>"_failOnSaberClash": (bool) Hidden setting, instantly fails player when sabers clash.</li>
+              <li>"_enabledObstacleType": (All, FullHeightOnly, NoObstacles) FullHeightOnly is a hidden setting and disables crouch walls.</li>
+              <li>"_fastNotes": (bool) Hidden setting, forces NJS to 20.</li>
+              <li>"_strictAngles": (bool)</li>
+              <li>"_disappearingArrows": (bool)</li>
+              <li>"_ghostNotes": (bool)</li>
+              <li>"_noBombs": (bool)</li>
+              <li>"_songSpeed": (Normal, Faster, Slower, SuperFast)</li>
+              <li>"_noArrows": (bool)</li>
+              <li>"_proMode": (bool)</li>
+              <li>"_zenMode": (bool)</li>
+              <li>"_smallCubes": (bool)</li>
+            </ul>
+          </li>
+          <li>"_environments"
+            <ul>
+              <li>"_overrideEnvironments": (bool) Enable or disable user environment.</li>
+            </ul>
+          </li>
+          <li>"_colors"
+            <ul>
+              <li>"_overrideDefaultColors": (bool) Enable or disable user color scheme.</li>
+            </ul>
+          </li>
+          <li>"_graphics"
+            <ul>
+              <li>"_mirrorGraphicsSettings": (int) 0 - 3</li>
+              <li>"_mainEffectGraphicsSettings": (int) 0 - 1 "Bloom Post Process"</li>
+              <li>"_smokeGraphicsSettings": (int) 0 - 1</li>
+              <li>"_burnMarkTrailsEnabled": (bool) Hidden setting, hides burn trails left by sabers.</li>
+              <li>"_screenDisplacementEffectsEnabled": (bool)</li>
+              <li>"_maxShockwaveParticles": (int) 0 - 2</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>My personal choices;</h3>
+        <pre><code class="language-js">
+"_playerOptions": {
+"_hideNoteSpawnEffect": true,
+"_environmentEffectsFilterDefaultPreset": "AllEffects",
+"_environmentEffectsFilterExpertPlusPreset": "AllEffects",
+},
+"_environments": {
+"_overrideEnvironments": false
+},
+"_graphics": {
+"_mirrorGraphicsSettings": 3,
+"_mainEffectGraphicsSettings": 1,
+"_smokeGraphicsSettings": 1,
+"_screenDisplacementEffectsEnabled": true,
+"_maxShockwaveParticles": 0,
+},
+"_chroma": {
+"_disableChromaEvents": false,
+"_disableEnvironmentEnhancements": false,
+"_disableNoteColoring": false,
+"_forceZenModeWalls": false
+},
+        </code></pre>
+        
+
+      <!-- Environment Enhancements -->
+        <h2>Environment Enhancements</h2>
+        <p>Environment enhancements, as the name implies, allows you to change <i>(or enhance)</i> the environment to make it unique and feel as your own</p>
+        <br><p>This is an example of code for this;</p>
+        <pre><code class="language-js">
+environment.push(
+ {id: "Smoke", lookupMethod: "Contains", active: false}
+ {id: "Mountains", lookupMethod: "Contains", duplicate: 1, scale: [2, 4, 2], position: [0, 0, 0]}
+)
+    </code></pre>
+    <br><p>Lets break this down!</p>
+    <ol>
+      <li>id - id is <i>the name</i> of an object such as "Rings, Waterfall, Laser, etc"</li>
+      <li>lookUpMethod - the way the id is searched for, kind of like doing a ctrl+f for the id
+        <ul>
+          <p><i>We will use "BillieEnvironment.[0]Environment.[12]Mountains" as an example id. Here is how the following may be used...</i></p>
+          <li>Regex:<ul><li>BillieEnvironment\\.\\[\\d*\\]Environment\\.\\[12\\]Mountains</li></ul></li>
+          <li>Exact:<ul><li>BillieEnvironment.[0]Environment.[12]Mountains</li></ul></li>
+          <li>Contains:<ul><li>Mountains</li></ul></li>
+          <li>EndsWith:<ul><li>.[12]Mountains</li></ul></li>
+        </ul>
+      </li>
+      <li>Active - True/False <i>(or On/Off)</i> simply makes the object show or not. <i>Some prefer to use "position: [-999, -999, -999]" because if active is false you <b>CANT</b> use anything from the object</i></li>
+      <li>Duplicate - recreates an object and allows you to edit it</li>
+      <li>Track - adds a track to the object if you want to animate it</li>
+      <li>Properties - the following can be added to any object to customize them to your liking;
+        <ul>
+          <li>scale: [x, y, z]</li>
+          <li>position: [x, y, z]</li>
+          <li>localPosition: [x, y, z]</li>
+          <li>rotation: [x, y, z] <i>(Pitch, Yaw, Roll)</i></li>
+          <li>localRotation: [x, y, z] <i>(Pitch, Yaw, Roll)</i></li>
+        </ul>
+      </li>
+    </ol>
+      </section>
+      <hr>
+      <section id="experience">
+        <h2>My Examples</h2>
+        <p>Heres a couple previews of my previous lightshows so you get a grip of what you can possibly do</p>
+      
+        <!-- YouTube Embed Example 1 -->
+        <div class="video-container">
+          <h3>SAKARA - Falling From The Sky</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ZHOnhiJxFLo" 
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+      
+        <!-- YouTube Embed Example 2 -->
+        <div class="video-container">
+          <h3>Malice - Blow The Speakers Up</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/TWU1Q4m9Kxo" 
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+
+</body>
+</html>
