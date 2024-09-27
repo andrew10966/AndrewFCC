@@ -45,6 +45,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 50px;
 }
 
 .music-item {
@@ -58,9 +59,9 @@ main {
     margin-top: 5px;
 }
 .music-item.favorite {
-    border: 2px solid #ffcc00; /* Gold border to highlight */
-    background-color: #333; /* Slightly different background color */
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5); /* Glow effect */
+    border: 2px solid #ffcc00;
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
 }
 footer {
     position: fixed;
@@ -71,7 +72,7 @@ footer {
     color: white;
     text-align: center;
     padding: 5px 0;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.5);
     font-size: 14px;
 }
 footer a {
