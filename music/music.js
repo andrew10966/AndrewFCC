@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "04/08/2024 -V3", file: "Project_17 (1).mp3" },
         { header: "Birthday Jokes!" },
         { title: "Tiny's Birthday Yipee", file: "Project_14.mp3" },
-        { title: "Minnie's Birthday Yipee", file: "Untitled.mp3" },
+        { title: "Minnie's Birthday Yipee", file: "min.mp3" },
     ];
 
     const musicList = document.querySelector('.music-list');
